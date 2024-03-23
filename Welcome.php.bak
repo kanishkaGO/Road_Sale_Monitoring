@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php require('com/head.php'); ?>
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+<?php require('com/topMenu.php');
+$stmt=$fetchdata->fetch_data("insert into HRD_USER_LOG(USERNAME,MODULE,ACTION,CREATE_DATE)values('".$_SESSION['LOGIN_ID']."','VISIT','DASHBOARD',SYSDATE)");
+?>
+  <div class="content-wrapper">
+    <div class="container">
+      <section class="content">
+        <div class="box box-default">
+          <div class="box-header with-border">
+            <h3 class="box-title">Dashboard</h3>
+          </div>
+          <div class="box-body">
+            <div class="row">
+              <?php
+				$stmt=$fetchdata->fetch_data("select count(1) count from HRD_PROG_MST where sysdate between start_date and end_date");
+				$res=oci_fetch_assoc($stmt);
+				$stmt1=$fetchdata->fetch_data("select count(1) count from TRAINING_V where sysdate between start_date and end_date");
+				$res1=oci_fetch_assoc($stmt1);
+               ?>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3><?php echo $res['COUNT']; ?></h3>
+              <p>Ongoing Programs</p>
+            </div>
+			<div class="inner">
+              <h3><?php echo $res1['COUNT']; ?></h3>
+              <p>Candidates</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+		<?php
+				$stmt=$fetchdata->fetch_data("select count(1) count from HRD_PROG_MST where to_char(SYSDATE,'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res=oci_fetch_assoc($stmt);
+				$stmt1=$fetchdata->fetch_data("select count(1) count from TRAINING_V where to_char(SYSDATE,'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res1=oci_fetch_assoc($stmt1);
+               ?>
+		<div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><?php echo $res['COUNT']; ?></h3>
+              <p>Programs this month</p>
+            </div>
+			<div class="inner">
+              <h3><?php echo $res1['COUNT']; ?></h3>
+              <p>Candidates</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+		<?php
+				$stmt=$fetchdata->fetch_data("select count(1) count from HRD_PROG_MST where to_char(ADD_MONTHS(sysdate, 1),'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res=oci_fetch_assoc($stmt);
+				$stmt1=$fetchdata->fetch_data("select count(1) count from TRAINING_V where to_char(ADD_MONTHS(sysdate, 1),'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res1=oci_fetch_assoc($stmt1);
+               ?>
+		<div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $res['COUNT']; ?></h3>
+              <p>Programs next month</p>
+            </div>
+			<div class="inner">
+              <h3><?php echo $res1['COUNT']; ?></h3>
+              <p>Candidates</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+		<?php
+				$stmt=$fetchdata->fetch_data("select count(1) count from HRD_PROG_MST where to_char(ADD_MONTHS(sysdate, -1),'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res=oci_fetch_assoc($stmt);
+				$stmt1=$fetchdata->fetch_data("select count(1) count from TRAINING_V where to_char(ADD_MONTHS(sysdate, -1),'MMYYYY')=to_char(END_DATE,'MMYYYY')");
+				$res1=oci_fetch_assoc($stmt1);
+               ?>
+		<div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?php echo $res['COUNT']; ?></h3>
+              <p>Programs previous month</p>
+            </div>
+			<div class="inner">
+              <h3><?php echo $res1['COUNT']; ?></h3>
+              <p>Candidates</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <!-- ./col -->
+      </div>
+          </div>
+        </div>
+
+
+
+      </section>
+    </div>
+  </div>
+<?php require('com/footer.php'); ?>
+</div>
+<?php require('com/lowScript.php'); ?>
+</body>
+</html>
