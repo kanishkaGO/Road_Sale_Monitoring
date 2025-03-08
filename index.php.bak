@@ -12,37 +12,24 @@
     }
   }
   </script>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-      body {
-      background-image: url("image/Auction_3.JPG");
-      background-color: #cccccc;
-      height: 100vh; /* Use viewport height for full page height */
-      width: 100%;
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Do not repeat the image */
-      background-size: cover;
-      -webkit-transition: none;
-      -o-transition: none;
-      transition: none;
-    }
-
-  #logo {
-    width: 150px;
-    height: 150px;
-  }
+body{
+    background-image: url("image/Auction_3.JPG");
+    background-color: #cccccc;
+  height: 100%; /* You must set a specified height */
+  width: 100%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  -webkit-transition:none;-o-transition:none;transition:none;
+}
 </style>
-
-
 </head>
 
 <body class="hold-transition">
 <div class="login-box">
   <div class="login-logo">
-  <img src="com/wcl_logo.png" class="img-circle" alt="User Image" id="logo">
-<br><b style="background-color: #cccccc;">WCL<br/>
-ROAD SALE MONITORING PORTAL
-</b></br>  </div>
+<b style="background-color: #cccccc;">WCL HRD<br/>Training Management System</b>  </div>
   <div class="login-box-body">
     <p class="login-box-msg"><b>Login</b></p>
     <form onsubmit="return validate(this);" action="query/validatelogin.php" method="post" enctype='multipart/form-data' >
@@ -77,12 +64,12 @@ ROAD SALE MONITORING PORTAL
 							  <input type="text" name='sum' id='sum' class="form-control" />
 					</div>
           <div class="row col-xs-12 text-red" id='error'></div>
-          <div class="row">
-        <div class="col-xs-8"><a href="#"></a>
+      <div class="row">
+        <div class="col-xs-8"><a href="#">forgot password</a>
         </div>
-        <div class="col-xs-12 text-center">
-           <button type="submit" class="btn btn-primary btn-block btn-flat" style="background-color: #ff0000;">Login</button>
-      </div>
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+        </div>
       </div>
     </form>
   </div>

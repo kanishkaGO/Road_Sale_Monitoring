@@ -1,0 +1,69 @@
+  <center>
+  
+  
+        <h1><br>WCL Employee Registration  Form</h1>
+        <table align="center" cellpadding="10">
+            <br>
+            <tr>
+                <td>First name:</td>
+                <td> <input type="text" id="name" name="name"
+                placeholder="Enter your First Name"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>Last name:</td>
+                <td> <input type="text" id="name" name="name"
+                placeholder="Enter your Last Name"></td>
+            </tr>
+            <br>
+			<tr>
+                <td>EIS Number:</td>
+                <td> <input type="numeric" id="name" name="MNUM"
+                placeholder="Enter your EIS no." pattern="[0-9]{8}" required></td>
+            </tr>
+			<br>
+			<tr>
+                <td>Mobile Number:</td>
+                <td> <input type="numeric" id="name" name="MNUM"
+                placeholder="Enter your mobile no." pattern="[0-9]{10}" required></td>
+            </tr>
+			
+            <br>
+           
+            
+            <tr>
+                <td>Department name:</td>
+				<td>
+  <select id="name" name="name">
+    <option value="">In which department you work/you want to visit </option>
+    <option value="system">System</option>
+    <option value="electrical">Marketing and sales</option>
+    <option value="instrumental">HRD</option>
+  </select>
+</td>
+               
+</select>
+            
+            <tr>
+                <td>Date of Entry:</td>
+                <td> <input type="date" id="name" name="DOE"></td>
+            </tr>
+            <tr>
+                <td>Check-in Time:</td>
+                <td><input type="time" id="time" name="TOE"></td>
+            </tr>
+            <tr>
+                <td>Check-out Time:</td>
+                <td><input type="time" id="time" name="TOE"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    
+					<form action="login_wcl.php">
+  <input type="submit" value="Submit">
+</form>
+                     
+                </td>
+            </tr>
+        </table>
+        </center>
